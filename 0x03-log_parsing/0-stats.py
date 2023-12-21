@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 
-"""Script that reads stdin line by line and computes metrics"""
+""" this Script reads stdin line by line and computes metrics"""
 
 import sys
 
 
-def printsts(dic, size):
+def print_stats(dic, size):
     """ WWPrints information """
     print("File size: {:d}".format(size))
     for i in sorted(dic.keys()):
@@ -22,7 +22,7 @@ size = 0
 try:
     for line in sys.stdin:
         if count != 0 and count % 10 == 0:
-            printsts(sts, size)
+            print_stats(sts, size)
 
         stlist = line.split()
         count += 1
@@ -37,9 +37,9 @@ try:
                 sts[stlist[-2]] += 1
         except:
             pass
-    printsts(sts, size)
+    print_stats(sts, size)
 
 
 except KeyboardInterrupt:
-    printsts(sts, size)
+    print_stats(sts, size)
     raise
